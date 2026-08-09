@@ -2,27 +2,30 @@
   "schema": "glaciereq.proof-receipt.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
   "source_sha": "9a0cfe13052c8481613f20a56d353469d7d14f1e6bac5da267e9b9712f1fe10c",
-  "proof_id": "wave-a-residual-xai-claim-promotion-fence-1786260727",
+  "proof_id": "wave-a-residual-green-xai-claim-promotion-fence-1786261245",
   "environment": {
-    "python": "3.9.6"
+    "python": "3.9.6",
+    "PYTHONPATH": "."
   },
   "tests": [
-    "unittest discover -s tests -v (x2)"
+    "PYTHONPATH=. python3 -m unittest discover -s tests -v (x2)"
   ],
   "adversarial_tests": [
     "tests/test_adversarial.py"
   ],
   "runtime": {
     "operate": "scripts/operate.py (x2)",
-    "dual_run_ok": true
+    "dual_run_ok": true,
+    "proof_dual_run_ok": true
   },
   "result": "PASS",
   "limitations": [
     "not production deployed",
     "reference implementation only"
   ],
-  "timestamp": "2026-08-09T07:32Z",
+  "timestamp": "2026-08-09T07:40Z",
   "artifact_hashes": {
-    "operability_receipt": "74aeb053a58b12b7503278bbd906da48af10d2a4d85ff91446e15d7dfb6984b2"
-  }
+    "operability_receipt": "227d0878d0ef5918baab344e899138884571df41a5f8c14f16c08158f4d90fc2"
+  },
+  "scratch_proof_log": "wave_a/xai-claim-promotion-fence/proof.log"
 }

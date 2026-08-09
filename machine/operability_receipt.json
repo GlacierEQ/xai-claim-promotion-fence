@@ -1,7 +1,7 @@
 {
   "schema": "glaciereq.operability-receipt.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "at": "2026-08-09T07:32Z",
+  "at": "2026-08-09T07:40Z",
   "source_sha": "9a0cfe13052c8481613f20a56d353469d7d14f1e6bac5da267e9b9712f1fe10c",
   "entry": "scripts/operate.py",
   "primary_output": {
@@ -12,5 +12,6 @@
     "reason": "HAVE_TESTED_NEED_PRODUCTION_CLAIM"
   },
   "dual_run_ok": true,
-  "result": "PASS"
+  "result": "PASS",
+  "scratch_launch_log": "wave_a/xai-claim-promotion-fence/launch.log"
 }
