@@ -1,0 +1,31 @@
+{
+  "schema": "glaciereq.repo-target-contract.v1",
+  "identity": {
+    "repository_id": "GlacierEQ/xai-claim-promotion-fence",
+    "local_path": "/Users/kcbflux/job-app/repos/xai-claim-promotion-fence"
+  },
+  "current": {
+    "state": "VERTICAL_SLICE",
+    "implemented": true,
+    "tested": false,
+    "deployed": false
+  },
+  "target": {
+    "purpose": "# ISSUE CONTRACT\n## Pain\nCooling/energy demos get described as production Colossus control.\n## Success\n- Stages: SIM \u2192 TESTED \u2192 INTEGRATED \u2192 PRODUCTION_CLAIM\n- Promotion requires evidence kinds\n",
+    "central_bottleneck": "see ISSUE_CONTRACT"
+  },
+  "invariants": [],
+  "promotion": {
+    "required_tests": [
+      "unit",
+      "adversarial"
+    ],
+    "require_exact_source_sha": true,
+    "require_receipt": true,
+    "require_nonclaims": true
+  },
+  "nonclaims": [
+    "no employer affiliation",
+    "reference implementation only"
+  ]
+}
