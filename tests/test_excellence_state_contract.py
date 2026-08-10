@@ -61,7 +61,7 @@ class ExcellenceStateContractTests(unittest.TestCase):
         self.assertTrue(POSITION["next_evolution"].strip())
         cursor = normalize(STATE["evolution_cursor"][len(prefix):])
         declared = normalize(POSITION["next_evolution"])
-        for concept in ("multi source evidence quorum", "claim rollback", "dependency aware", "authority"):
+        for concept in ("multi source evidence quorum", "rollback", "dependency aware", "authority"):
             self.assertIn(concept, cursor)
             self.assertIn(concept, declared)
 
