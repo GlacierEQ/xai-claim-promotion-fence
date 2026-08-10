@@ -1,31 +1,42 @@
 {
   "schema": "glaciereq.repo-target-contract.v1",
-  "identity": {
-    "repository_id": "GlacierEQ/xai-claim-promotion-fence",
-    "local_path": "/Users/kcbflux/job-app/repos/xai-claim-promotion-fence"
-  },
+  "identity": {"repository_id": "GlacierEQ/xai-claim-promotion-fence"},
   "current": {
-    "state": "VERTICAL_SLICE",
+    "principal_state": "PROMOTED",
     "implemented": true,
-    "tested": false,
+    "tested": true,
+    "adversarial_verified": true,
+    "operable": true,
+    "proof_receipt_bound": true,
+    "authority_bound": true,
     "deployed": false
   },
   "target": {
-    "purpose": "# ISSUE CONTRACT\n## Pain\nCooling/energy demos get described as production Colossus control.\n## Success\n- Stages: SIM \u2192 TESTED \u2192 INTEGRATED \u2192 PRODUCTION_CLAIM\n- Promotion requires evidence kinds\n",
-    "central_bottleneck": "see ISSUE_CONTRACT"
+    "purpose": "Prevent simulation or bounded infrastructure evidence from being promoted into production-control claims without stage-appropriate evidence.",
+    "central_bottleneck": "Cooling or energy experiments can be misrepresented as production Colossus control when claim maturity is not tied to evidence kinds and ordered promotion stages.",
+    "success": [
+      "Claim stages remain ordered SIM -> TESTED -> INTEGRATED -> PRODUCTION_CLAIM.",
+      "Each promotion requires the evidence kinds defined for the destination stage.",
+      "Missing evidence blocks promotion instead of lowering the evidence requirement."
+    ]
   },
-  "invariants": [],
+  "invariants": [
+    "claim stages cannot be skipped",
+    "destination-stage evidence is required before promotion",
+    "simulation evidence cannot establish production control"
+  ],
+  "donor_plan": {
+    "status": "RESOLVED",
+    "strategy": "INDEPENDENT_MECHANISM_PRESERVED",
+    "donors": [],
+    "basis": "The current repository owns the implemented claim-promotion fence; no donor implementation is required to define or operate it.",
+    "future_extraction": "Reusable evidence-bound promotion semantics may be extracted only with lineage, functional/proof equivalence, and preservation of this repository's identity."
+  },
   "promotion": {
-    "required_tests": [
-      "unit",
-      "adversarial"
-    ],
+    "required_tests": ["unit", "adversarial", "operability"],
     "require_exact_source_sha": true,
     "require_receipt": true,
     "require_nonclaims": true
   },
-  "nonclaims": [
-    "no employer affiliation",
-    "reference implementation only"
-  ]
+  "nonclaims": ["no xAI affiliation", "reference claim-governance engineering system, not production Colossus control"]
 }
