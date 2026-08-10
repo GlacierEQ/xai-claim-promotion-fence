@@ -1,22 +1,62 @@
 {
   "schema": "glaciereq.repo-canonical-position.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "position_state": "RESOLVED",
-  "role": "company_specific_specialist_system",
+  "position_state": "CANDIDATE",
+  "role": "CANONICAL_SPECIALIST_CANDIDATE",
   "company_target": "xAI",
   "canonical_identity": "claim-promotion-fence",
+  "owns_candidate": "scoped_evidence_quorum_claim_promotion",
   "unique_value": [
     "claim maturity advances through ordered evidence-bound stages rather than marketing language",
-    "destination-stage evidence is required before promotion",
-    "simulation evidence cannot establish production-control authority"
+    "receipts count only when scoped to the exact claim, repository, and source SHA",
+    "destination-stage evidence must meet a positive unique-signer quorum",
+    "future or revoked evidence fails closed",
+    "prerequisite promotions count only while their grants remain active and stage-sufficient"
   ],
   "capability_contribution": {
     "family": "evidence_bound_claim_promotion",
-    "extractable_mechanisms": ["ordered claim maturity stages", "destination-evidence requirements", "fail-closed claim promotion"],
-    "ownership": "This repository remains the owning xAI-specialist implementation; extraction preserves identity and lineage."
+    "extractable_mechanisms": [
+      "ordered claim maturity stages",
+      "claim-scoped receipt validation",
+      "per-evidence-kind signer quorum",
+      "evidence and grant revocation",
+      "dependency-aware promotion",
+      "time-bounded promotion grants"
+    ],
+    "ownership": "Candidate ownership only until exact Python+Node proof closes CANONICAL_POSITION_RESOLVED."
   },
-  "integration_policy": {"preserve_repository_identity":true,"preserve_lineage":true,"presentation_independent":true,"size_or_loc_not_dispositive":true,"absorption_requires_functional_equivalence":true,"absorption_requires_proof_equivalence":true},
-  "next_evolution": "Add multi-source evidence quorum, claim revocation/rollback, and dependency-aware production-claim authority without allowing stage skipping.",
-  "evidence_refs": ["ISSUE_CONTRACT.md","machine/target-contract.json","machine/proof_receipt.json","machine/operability_receipt.json","machine/promotion_authority.json"],
-  "nonclaims": ["no xAI affiliation", "not production Colossus control"]
+  "does_not_own": [
+    "actuation lifecycle receipt capture",
+    "physical-operation verification",
+    "production-control authorization",
+    "xAI affiliation or adoption"
+  ],
+  "relationships": [
+    {
+      "repository": "GlacierEQ/xai-actuation-receipt-bus",
+      "relationship": "complementary actuation lifecycle evidence specialist",
+      "integration_exercised": false
+    }
+  ],
+  "integration_policy": {
+    "preserve_repository_identity": true,
+    "preserve_lineage": true,
+    "presentation_independent": true,
+    "size_or_loc_not_dispositive": true,
+    "absorption_requires_functional_equivalence": true,
+    "absorption_requires_proof_equivalence": true
+  },
+  "next_evolution_if_proven": "Add receipt-level composition with the actuation lifecycle bus and explicit rollback propagation without turning claim maturity into operational authority.",
+  "evidence_refs": [
+    "ISSUE_CONTRACT.md",
+    "machine/target-contract.json",
+    "machine/proof_receipt.json",
+    "machine/operability_receipt.json",
+    "machine/promotion_authority.json"
+  ],
+  "nonclaims": [
+    "no xAI affiliation or adoption",
+    "not production Colossus control",
+    "canonical role remains unproven until exact-head Python+Node receipt"
+  ]
 }
