@@ -1,8 +1,12 @@
 {
   "schema": "glaciereq.repo-target-contract.v1",
-<<<<<<< HEAD
-  "identity": {"repository_id": "GlacierEQ/xai-claim-promotion-fence"},
+  "identity": {
+    "repository_id": "GlacierEQ/xai-claim-promotion-fence",
+    "family": "elite-estate",
+    "canonical_identity": "claim-promotion-fence"
+  },
   "current": {
+    "state": "PROMOTED",
     "principal_state": "PROMOTED",
     "implemented": true,
     "tested": true,
@@ -10,55 +14,54 @@
     "operable": true,
     "proof_receipt_bound": true,
     "authority_bound": true,
-    "deployed": false
+    "deployed": false,
+    "canonical_position_pending_exact_head_proof": true
   },
   "target": {
-    "purpose": "Prevent simulation or bounded infrastructure evidence from being promoted into production-control claims without stage-appropriate evidence.",
-    "central_bottleneck": "Cooling or energy experiments can be misrepresented as production Colossus control when claim maturity is not tied to evidence kinds and ordered promotion stages.",
+    "purpose": "Prevent bounded or simulation evidence from being promoted into stronger claim maturity without claim-scoped, quorum-valid, active evidence and dependencies.",
+    "central_bottleneck": "Receipt kinds alone are insufficient when evidence can come from a different claim/source or when prerequisite grants remain trusted after revocation or expiry.",
     "success": [
       "Claim stages remain ordered SIM -> TESTED -> INTEGRATED -> PRODUCTION_CLAIM.",
-      "Each promotion requires the evidence kinds defined for the destination stage.",
-      "Missing evidence blocks promotion instead of lowering the evidence requirement."
+      "Every counted receipt binds claim_id, repository, and source_sha.",
+      "Destination-stage evidence kinds meet a positive unique-signer quorum.",
+      "Future, revoked, malformed, and out-of-scope receipts do not count.",
+      "Promotion decisions bind exact claim, policy, evidence, and prerequisite-grant identities.",
+      "Time-bounded grants become invalid when supporting evidence or prerequisite grants are revoked.",
+      "Claim IDs cannot be rebound to different repository/source identity.",
+      "Python and Node preserve the same scoped evidence/quorum stage ceiling."
     ]
   },
   "invariants": [
-    "claim stages cannot be skipped",
-    "destination-stage evidence is required before promotion",
-    "simulation evidence cannot establish production control"
+    "stage progression is ordered and destination-evidence-bound",
+    "receipt scope is claim_id + repository + source_sha",
+    "required quorum is a positive integer and counts unique signers per evidence kind",
+    "future and revoked evidence fail closed",
+    "prerequisites count only while their grants remain active and stage-sufficient",
+    "PRODUCTION_CLAIM is claim maturity and not production-control authority"
   ],
   "donor_plan": {
     "status": "RESOLVED",
     "strategy": "INDEPENDENT_MECHANISM_PRESERVED",
     "donors": [],
-    "basis": "The current repository owns the implemented claim-promotion fence; no donor implementation is required to define or operate it.",
-    "future_extraction": "Reusable evidence-bound promotion semantics may be extracted only with lineage, functional/proof equivalence, and preservation of this repository's identity."
+    "siblings": ["GlacierEQ/xai-actuation-receipt-bus"],
+    "integration_exercised": false,
+    "basis": "This repository owns claim-evidence promotion semantics; the actuation receipt bus owns lifecycle evidence and remains separate."
   },
   "promotion": {
-    "required_tests": ["unit", "adversarial", "operability"],
+    "next_gate": "CANONICAL_POSITION_RESOLVED",
+    "required_tests": ["python", "node", "adversarial", "canonical-position"],
     "require_exact_source_sha": true,
     "require_receipt": true,
     "require_nonclaims": true
   },
-  "nonclaims": ["no xAI affiliation", "reference claim-governance engineering system, not production Colossus control"]
-=======
-  "identity": {
-    "repository_id": "GlacierEQ/xai-claim-promotion-fence",
-    "family": "elite-estate"
-  },
-  "current": {
-    "state": "PROMOTED",
-    "implemented": true,
-    "tested": true,
-    "deployed": false
-  },
+  "canonical_position_ref": "machine/canonical-position.json",
   "nonclaims": [
-    "no employer affiliation",
-    "no production deployment without receipt"
+    "no xAI affiliation or adoption",
+    "reference claim-governance system, not production Colossus control",
+    "no production deployment",
+    "no physical-operation verification",
+    "no external actuation authorization",
+    "no sibling integration without executable composition proof"
   ],
-  "donor_plan": {
-    "mode": "none",
-    "donors": []
-  },
-  "frozen_at": "2026-08-10T04:12Z"
->>>>>>> ab9ab19 (chore: Hyper Excellence Activation & structural matrix alignment)
+  "frozen_at": "2026-08-10T16:08:00Z"
 }
