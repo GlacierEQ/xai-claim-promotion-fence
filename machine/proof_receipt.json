@@ -1,14 +1,15 @@
 {
   "schema": "glaciereq.proof-receipt.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "source_sha": "9a0cfe13052c8481613f20a56d353469d7d14f1e6bac5da267e9b9712f1fe10c",
-  "proof_id": "wave-a-residual-green-xai-claim-promotion-fence-1786261245",
+  "source_sha": "9dc8635d6093796e8da43ee2e9d61b4c015f35900ac486f154eee989808fc108",
+  "proof_id": "elite-xai-claim-promotion-fence-1786335149",
   "environment": {
-    "python": "3.9.6",
-    "PYTHONPATH": "."
+    "python": "/Users/kcbflux/job-app/excellence/.venv-elite/bin/python",
+    "PYTHONPATH": "/Users/kcbflux/job-app/repos/xai-claim-promotion-fence:/Users/kcbflux/job-app/repos/xai-claim-promotion-fence/src",
+    "entry": "unittest"
   },
   "tests": [
-    "PYTHONPATH=. python3 -m unittest discover -s tests -v (x2)"
+    "/Users/kcbflux/job-app/excellence/.venv-elite/bin/python -m unittest discover -s tests -v (x2)"
   ],
   "adversarial_tests": [
     "tests/test_adversarial.py"
@@ -23,9 +24,8 @@
     "not production deployed",
     "reference implementation only"
   ],
-  "timestamp": "2026-08-09T07:40Z",
+  "timestamp": "2026-08-10T04:12Z",
   "artifact_hashes": {
-    "operability_receipt": "227d0878d0ef5918baab344e899138884571df41a5f8c14f16c08158f4d90fc2"
-  },
-  "scratch_proof_log": "wave_a/xai-claim-promotion-fence/proof.log"
+    "operability_receipt": "6664abec4b8c883bd9774a0332fda9b8791a957becf550cb735341049b28fea7"
+  }
 }

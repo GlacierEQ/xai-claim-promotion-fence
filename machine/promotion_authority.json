@@ -1,10 +1,11 @@
 {
   "schema": "glaciereq.promotion-authority-grant.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "source_sha": "9a0cfe13052c8481613f20a56d353469d7d14f1e6bac5da267e9b9712f1fe10c",
-  "proof_receipt_digest": "6dbe512820a1aa2c5d71961fa71915235b03ca7d2abfe28deb4ad837594351be",
-  "not_after": 1786347645.105215,
-  "mac": "957e9c3be273871a83caddefe966e68356dd11604062a4fe9fda226100f07f2c",
+  "source_sha": "9dc8635d6093796e8da43ee2e9d61b4c015f35900ac486f154eee989808fc108",
+  "proof_receipt_digest": "ae0c58d5636673c0ff4fc82f7b86573291d970f659b50a700aed4cef8f7e607d",
+  "not_after": 1788927149.234226,
+  "mac": "60fc4004759471ad385154e736b6e160fa08392200645c9971622ffd237cd822",
   "issuer": "local_operator_promotion_authority",
-  "verified": true
+  "verified": true,
+  "secret_ref": "src/promotion_authority.py::LOCAL_OPERATOR_SECRET"
 }

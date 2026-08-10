@@ -1,17 +1,28 @@
 {
   "schema": "glaciereq.operability-receipt.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "at": "2026-08-09T07:40Z",
-  "source_sha": "9a0cfe13052c8481613f20a56d353469d7d14f1e6bac5da267e9b9712f1fe10c",
+  "at": "2026-08-10T04:12Z",
+  "source_sha": "9dc8635d6093796e8da43ee2e9d61b4c015f35900ac486f154eee989808fc108",
   "entry": "scripts/operate.py",
   "primary_output": {
-    "integrated_ok": true,
-    "max_stage": "INTEGRATED",
+    "module": "claim_fence",
     "ok": true,
-    "prod_blocked": true,
-    "reason": "HAVE_TESTED_NEED_PRODUCTION_CLAIM"
+    "repository": "GlacierEQ/xai-claim-promotion-fence",
+    "smoke": {
+      "args": [
+        "[]",
+        "<Stage.SIM: 'SIM'>"
+      ],
+      "content_checked": true,
+      "invoked": true,
+      "kind": "fn",
+      "name": "allow_claim",
+      "result": [
+        true,
+        null
+      ]
+    }
   },
   "dual_run_ok": true,
-  "result": "PASS",
-  "scratch_launch_log": "wave_a/xai-claim-promotion-fence/launch.log"
+  "result": "PASS"
 }
