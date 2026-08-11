@@ -1,76 +1,23 @@
 {
   "schema": "glaciereq.repo-excellence-state.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "principal_state": "PROMOTED",
+  "principal_state": "EVOLVING",
+  "claim_ceiling": "PROMOTED",
   "gates": {
-    "IDENTITY_RESOLVED": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "github GlacierEQ/xai-claim-promotion-fence"
-    },
-    "PROBLEM_VERIFIED": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "README/ISSUE_CONTRACT problem bound"
-    },
-    "TARGET_CONTRACT_FROZEN": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "machine/target-contract.json"
-    },
-    "DONOR_PLAN_RESOLVED": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "elite bar seed; donor_reuse=none"
-    },
-    "VERTICAL_SLICE_ALIVE": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "src mechanism + scripts/operate.py"
-    },
-    "CENTRAL_MECHANISM_PRESENT": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "central mechanism in src/"
-    },
-    "DETERMINISTIC_PROOF_GREEN": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "dual-run green tests"
-    },
-    "ADVERSARIAL_SURVIVAL": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "tests/test_adversarial.py"
-    },
-    "OPERABLE_AND_OBSERVABLE": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "scripts/operate.py dual-run PASS; primary ok"
-    },
-    "PROOF_RECEIPT_BOUND": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "machine/proof_receipt.json bound"
-    },
-    "AUTHORITY_BOUND": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "promotion_authority.json local HMAC grant"
-    },
-    "PROJECTION_TRUTH_CLOSED": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "proof=ae0c58d5636673c0; authority=ab16120a8fce3def; operability=6664abec4b8c883b; claim_ceiling=leaf-native; nonclaims=non_affiliation_preserved; projection_role=monolith_projection_only; readback=operate_content_checked+validator_PASS"
-    },
-    "CANONICAL_POSITION_RESOLVED": {
-      "status": "PENDING"
-    },
-    "EVOLUTION_CURSOR_DEFINED": {
-      "status": "PASS",
-      "at": "2026-08-10T06:25Z",
-      "evidence": "next:canonical_position_only_if_estate_role_resolved"
-    },
+    "IDENTITY_RESOLVED": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "github GlacierEQ/xai-claim-promotion-fence"},
+    "PROBLEM_VERIFIED": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "README/ISSUE_CONTRACT problem bound"},
+    "TARGET_CONTRACT_FROZEN": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "machine/target-contract.json"},
+    "DONOR_PLAN_RESOLVED": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "independent mechanism preserved; sibling integration not exercised"},
+    "VERTICAL_SLICE_ALIVE": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "src mechanism + scripts/operate.py"},
+    "CENTRAL_MECHANISM_PRESENT": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "claim-scoped evidence/quorum promotion in Python and Node"},
+    "DETERMINISTIC_PROOF_GREEN": {"status": "PASS", "at": "2026-08-11T01:47:00Z", "evidence": "PR #5 candidate 7d86082e299cbed21914b5f62d296d42fbed6384; workflow 31450384429; py PASS; node PASS"},
+    "ADVERSARIAL_SURVIVAL": {"status": "PASS", "at": "2026-08-11T01:47:00Z", "evidence": "Python suite includes scoped/revoked/future/quorum/dependency/rebinding adversarial cases"},
+    "OPERABLE_AND_OBSERVABLE": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "scripts/operate.py bounded cold-start path"},
+    "PROOF_RECEIPT_BOUND": {"status": "PASS", "at": "2026-08-11T01:48:00Z", "evidence": "machine/canonical-proof-receipt.json binds tested candidate and workflow"},
+    "AUTHORITY_BOUND": {"status": "PASS", "at": "2026-08-10T06:25Z", "evidence": "promotion authority remains local and does not confer external operational authority"},
+    "PROJECTION_TRUTH_CLOSED": {"status": "PASS", "at": "2026-08-11T01:48:00Z", "evidence": "estate role separated from external claim ceiling; non-affiliation and non-production boundaries preserved"},
+    "CANONICAL_POSITION_RESOLVED": {"status": "PASS", "at": "2026-08-11T01:48:00Z", "evidence": "machine/canonical-position.json + exact PR #5 Python/Node proof"},
+    "EVOLUTION_CURSOR_DEFINED": {"status": "PASS", "at": "2026-08-11T01:48:00Z", "evidence": "next:receipt_level_composition_with_actuation_bus_and_rollback_propagation"},
     "problem_verified": true,
     "unique_value_known": true,
     "canonical_identity_known": true,
@@ -82,112 +29,40 @@
     "proof_receipt_bound_to_sha": true,
     "reusable_capabilities_extracted": true,
     "projections_truth_consistent": true,
+    "canonical_position_resolved": true,
     "evolution_cursor_defined": true
   },
   "history": [
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "DISCOVERED",
-      "to": "IDENTITY_RESOLVED",
-      "gate": "IDENTITY_RESOLVED",
-      "result": "PASS",
-      "note": "github GlacierEQ/xai-claim-promotion-fence"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "IDENTITY_RESOLVED",
-      "to": "PROBLEM_VERIFIED",
-      "gate": "PROBLEM_VERIFIED",
-      "result": "PASS",
-      "note": "README/ISSUE_CONTRACT problem bound"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "PROBLEM_VERIFIED",
-      "to": "TARGET_CONTRACTED",
-      "gate": "TARGET_CONTRACT_FROZEN",
-      "result": "PASS",
-      "note": "machine/target-contract.json"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "TARGET_CONTRACTED",
-      "to": "SEEDED",
-      "gate": "DONOR_PLAN_RESOLVED",
-      "result": "PASS",
-      "note": "elite bar seed; donor_reuse=none"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "SEEDED",
-      "to": "VERTICAL_SLICE",
-      "gate": "VERTICAL_SLICE_ALIVE",
-      "result": "PASS",
-      "note": "src mechanism + scripts/operate.py"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "VERTICAL_SLICE",
-      "to": "IMPLEMENTED",
-      "gate": "CENTRAL_MECHANISM_PRESENT",
-      "result": "PASS",
-      "note": "central mechanism in src/"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "IMPLEMENTED",
-      "to": "TESTED",
-      "gate": "DETERMINISTIC_PROOF_GREEN",
-      "result": "PASS",
-      "note": "dual-run green tests"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "TESTED",
-      "to": "ADVERSARIAL_VERIFIED",
-      "gate": "ADVERSARIAL_SURVIVAL",
-      "result": "PASS",
-      "note": "tests/test_adversarial.py"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "ADVERSARIAL_VERIFIED",
-      "to": "OPERABLE",
-      "gate": "OPERABLE_AND_OBSERVABLE",
-      "result": "PASS",
-      "note": "scripts/operate.py dual-run PASS; primary ok"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "OPERABLE",
-      "to": "PROOF_REPRODUCED",
-      "gate": "PROOF_RECEIPT_BOUND",
-      "result": "PASS",
-      "note": "machine/proof_receipt.json bound"
-    },
-    {
-      "at": "2026-08-10T06:25Z",
-      "from": "PROOF_REPRODUCED",
-      "to": "PROMOTED",
-      "gate": "AUTHORITY_BOUND",
-      "result": "PASS",
-      "note": "promotion_authority + PROJECTION_TRUTH_CLOSED"
-    }
+    {"at":"2026-08-10T06:25Z","from":"DISCOVERED","to":"IDENTITY_RESOLVED","gate":"IDENTITY_RESOLVED","result":"PASS","note":"github GlacierEQ/xai-claim-promotion-fence"},
+    {"at":"2026-08-10T06:25Z","from":"IDENTITY_RESOLVED","to":"PROBLEM_VERIFIED","gate":"PROBLEM_VERIFIED","result":"PASS","note":"README/ISSUE_CONTRACT problem bound"},
+    {"at":"2026-08-10T06:25Z","from":"PROBLEM_VERIFIED","to":"TARGET_CONTRACTED","gate":"TARGET_CONTRACT_FROZEN","result":"PASS","note":"machine/target-contract.json"},
+    {"at":"2026-08-10T06:25Z","from":"TARGET_CONTRACTED","to":"SEEDED","gate":"DONOR_PLAN_RESOLVED","result":"PASS","note":"independent mechanism preserved"},
+    {"at":"2026-08-10T06:25Z","from":"SEEDED","to":"VERTICAL_SLICE","gate":"VERTICAL_SLICE_ALIVE","result":"PASS","note":"src mechanism + scripts/operate.py"},
+    {"at":"2026-08-10T06:25Z","from":"VERTICAL_SLICE","to":"IMPLEMENTED","gate":"CENTRAL_MECHANISM_PRESENT","result":"PASS","note":"claim promotion engine implemented"},
+    {"at":"2026-08-10T06:25Z","from":"IMPLEMENTED","to":"TESTED","gate":"DETERMINISTIC_PROOF_GREEN","result":"PASS","note":"repository-native deterministic proof"},
+    {"at":"2026-08-10T06:25Z","from":"TESTED","to":"ADVERSARIAL_VERIFIED","gate":"ADVERSARIAL_SURVIVAL","result":"PASS","note":"adversarial suite"},
+    {"at":"2026-08-10T06:25Z","from":"ADVERSARIAL_VERIFIED","to":"OPERABLE","gate":"OPERABLE_AND_OBSERVABLE","result":"PASS","note":"bounded operator path"},
+    {"at":"2026-08-10T06:25Z","from":"OPERABLE","to":"PROOF_REPRODUCED","gate":"PROOF_RECEIPT_BOUND","result":"PASS","note":"proof receipt bound"},
+    {"at":"2026-08-10T06:25Z","from":"PROOF_REPRODUCED","to":"PROMOTED","gate":"AUTHORITY_BOUND","result":"PASS","note":"local promotion authority + projection truth"},
+    {"at":"2026-08-11T01:48:00Z","from":"PROMOTED","to":"CANONICAL","gate":"CANONICAL_POSITION_RESOLVED","result":"PASS","note":"PR #5 candidate 7d86082e299cbed21914b5f62d296d42fbed6384 passed Python and Node in workflow 31450384429"},
+    {"at":"2026-08-11T01:48:00Z","from":"CANONICAL","to":"EVOLVING","gate":"EVOLUTION_CURSOR_DEFINED","result":"PASS","note":"next: receipt-level sibling composition + rollback propagation; integration still unexercised"}
   ],
   "contract_ref": "machine/target-contract.json",
+  "canonical_position_ref": "machine/canonical-position.json",
+  "canonical_proof_ref": "machine/canonical-proof-receipt.json",
   "scores_ref": "machine/excellence-scores.json",
-  "evolution_cursor": "next:canonical_position_only_if_estate_role_resolved",
-  "wave": {
-    "id": "ELITE-ESTATE-2026-08-10",
-    "proof_ok": true,
-    "operable_ok": true,
-    "promoted_at": "2026-08-10T04:12Z",
-    "projection_truth_closed_at": "2026-08-10T06:25Z",
-    "policy": "glaciereq.repo-excellence.promotion-policy.v1"
-  },
-  "state": "PROMOTED",
+  "evolution_cursor": "next:receipt_level_composition_with_actuation_bus_and_rollback_propagation",
+  "state": "EVOLVING",
   "proof_receipt": {
-    "source_sha": "HYPER_VALIDATED_SHA256",
-    "identity": "HYPER_VALIDATED_IDENTITY"
+    "tested_candidate_sha": "7d86082e299cbed21914b5f62d296d42fbed6384",
+    "workflow_run": 31450384429,
+    "python": "PASS",
+    "node": "PASS"
+  },
+  "truth_boundary": {
+    "external_claim_ceiling": "PROMOTED",
+    "deployed": false,
+    "integration_exercised": false,
+    "xai_affiliation": false
   }
 }
