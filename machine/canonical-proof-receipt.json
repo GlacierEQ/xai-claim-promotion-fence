@@ -1,0 +1,46 @@
+{
+  "schema": "glaciereq.canonical-proof-receipt.v1",
+  "repository": "GlacierEQ/xai-claim-promotion-fence",
+  "canonical_identity": "claim-promotion-fence",
+  "proof_class": "exact_pr_head_cross_language",
+  "tested_candidate": {
+    "sha": "7d86082e299cbed21914b5f62d296d42fbed6384",
+    "pull_request": 5,
+    "workflow_run": 31450384429,
+    "workflow_name": "tests"
+  },
+  "lanes": {
+    "python": {
+      "job_id": 93653367573,
+      "command": "python -m unittest discover -s tests -v",
+      "result": "PASS"
+    },
+    "node": {
+      "job_id": 93653367599,
+      "command": "node ts/run_tests.mjs",
+      "result": "PASS"
+    }
+  },
+  "mechanism_proven": [
+    "claim/repository/source-scoped evidence receipts",
+    "positive unique-signer quorum per required evidence kind",
+    "future/revoked/out-of-scope evidence refusal",
+    "claim identity rebinding refusal",
+    "active stage-sufficient prerequisite grants",
+    "evidence and grant revocation",
+    "time-bounded promotion grants",
+    "deterministic promotion decision identity",
+    "Python/Node scoped evidence-ceiling parity"
+  ],
+  "canonical_role": "company_specific_specialist_system:scoped_evidence_quorum_claim_promotion",
+  "external_claim_ceiling": "PROMOTED",
+  "truth_boundary": {
+    "production_deployment": false,
+    "production_colossus_control": false,
+    "physical_operation_verification": false,
+    "xai_affiliation_or_adoption": false,
+    "actuation_bus_integration_exercised": false
+  },
+  "receipt_inclusive_merge_gate": "Require this artifact plus canonical machine state to pass Python and Node on the final PR head before merge.",
+  "recorded_at": "2026-08-11T01:48:00Z"
+}
