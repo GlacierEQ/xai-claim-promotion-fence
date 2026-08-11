@@ -6,8 +6,9 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE = json.loads((ROOT / "machine" / "excellence-state.json").read_text(encoding="utf-8"))
 POSITION = json.loads((ROOT / "machine" / "canonical-position.json").read_text(encoding="utf-8"))
 TARGET = json.loads((ROOT / "machine" / "target-contract.json").read_text(encoding="utf-8"))
+PROOF = json.loads((ROOT / "machine" / "canonical-proof-receipt.json").read_text(encoding="utf-8"))
 
-EXPECTED_PROMOTED_TRANSITIONS = [
+EXPECTED_TRANSITIONS = [
     ("DISCOVERED", "IDENTITY_RESOLVED", "IDENTITY_RESOLVED"),
     ("IDENTITY_RESOLVED", "PROBLEM_VERIFIED", "PROBLEM_VERIFIED"),
     ("PROBLEM_VERIFIED", "TARGET_CONTRACTED", "TARGET_CONTRACT_FROZEN"),
@@ -19,28 +20,38 @@ EXPECTED_PROMOTED_TRANSITIONS = [
     ("ADVERSARIAL_VERIFIED", "OPERABLE", "OPERABLE_AND_OBSERVABLE"),
     ("OPERABLE", "PROOF_REPRODUCED", "PROOF_RECEIPT_BOUND"),
     ("PROOF_REPRODUCED", "PROMOTED", "AUTHORITY_BOUND"),
+    ("PROMOTED", "CANONICAL", "CANONICAL_POSITION_RESOLVED"),
+    ("CANONICAL", "EVOLVING", "EVOLUTION_CURSOR_DEFINED"),
 ]
 
 
 class ExcellenceStateContractTests(unittest.TestCase):
-    def test_state_stays_promoted_until_exact_canonical_proof(self):
-        self.assertEqual(STATE["principal_state"], "PROMOTED")
-        self.assertEqual(STATE["state"], "PROMOTED")
-        self.assertEqual(
-            STATE["gates"]["CANONICAL_POSITION_RESOLVED"]["status"],
-            "PENDING",
-        )
-        self.assertEqual(POSITION["position_state"], "CANDIDATE")
-        self.assertEqual(POSITION["role"], "CANONICAL_SPECIALIST_CANDIDATE")
-        self.assertTrue(TARGET["current"]["canonical_position_pending_exact_head_proof"])
+    def test_state_is_canonical_and_evolving_without_claim_inflation(self):
+        self.assertEqual(STATE["principal_state"], "EVOLVING")
+        self.assertEqual(STATE["state"], "EVOLVING")
+        self.assertEqual(STATE["claim_ceiling"], "PROMOTED")
+        self.assertEqual(STATE["gates"]["CANONICAL_POSITION_RESOLVED"]["status"], "PASS")
+        self.assertEqual(STATE["gates"]["EVOLUTION_CURSOR_DEFINED"]["status"], "PASS")
+        self.assertEqual(POSITION["position_state"], "RESOLVED")
+        self.assertEqual(POSITION["role"], "company_specific_specialist_system")
+        self.assertTrue(TARGET["current"]["canonical_position_resolved"])
+        self.assertFalse(TARGET["current"]["canonical_position_pending_exact_head_proof"])
+        self.assertEqual(TARGET["external_claim_ceiling"], "PROMOTED")
 
-    def test_history_is_ordered_and_stops_at_promoted(self):
+    def test_history_is_ordered_and_non_skipping(self):
         actual = [(step["from"], step["to"], step["gate"]) for step in STATE["history"]]
-        self.assertEqual(actual, EXPECTED_PROMOTED_TRANSITIONS)
+        self.assertEqual(actual, EXPECTED_TRANSITIONS)
         self.assertTrue(all(step["result"] == "PASS" for step in STATE["history"]))
         self.assertEqual(STATE["history"][-1]["to"], STATE["principal_state"])
 
-    def test_candidate_position_preserves_identity_and_lineage(self):
+    def test_exact_cross_language_proof_is_bound(self):
+        self.assertEqual(PROOF["tested_candidate"]["sha"], "7d86082e299cbed21914b5f62d296d42fbed6384")
+        self.assertEqual(PROOF["tested_candidate"]["workflow_run"], 31450384429)
+        self.assertEqual(PROOF["lanes"]["python"]["result"], "PASS")
+        self.assertEqual(PROOF["lanes"]["node"]["result"], "PASS")
+        self.assertEqual(PROOF["external_claim_ceiling"], "PROMOTED")
+
+    def test_position_preserves_identity_lineage_and_sibling_boundary(self):
         self.assertEqual(POSITION["repository"], STATE["repository"])
         policy = POSITION["integration_policy"]
         for field in (
@@ -52,15 +63,16 @@ class ExcellenceStateContractTests(unittest.TestCase):
         ):
             self.assertIs(policy[field], True)
         self.assertFalse(TARGET["donor_plan"]["integration_exercised"])
+        self.assertFalse(PROOF["truth_boundary"]["actuation_bus_integration_exercised"])
 
-    def test_candidate_next_evolution_is_material_but_not_claimed_complete(self):
-        declared = POSITION["next_evolution_if_proven"].lower()
+    def test_evolution_cursor_is_material_and_does_not_imply_completion(self):
+        declared = POSITION["next_evolution"].lower()
         self.assertIn("actuation lifecycle bus", declared)
         self.assertIn("rollback", declared)
         self.assertIn("operational authority", declared)
         self.assertEqual(
             STATE["evolution_cursor"],
-            "next:canonical_position_only_if_estate_role_resolved",
+            "next:receipt_level_composition_with_actuation_bus_and_rollback_propagation",
         )
 
 
