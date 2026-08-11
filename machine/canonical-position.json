@@ -1,17 +1,18 @@
 {
   "schema": "glaciereq.repo-canonical-position.v1",
   "repository": "GlacierEQ/xai-claim-promotion-fence",
-  "position_state": "CANDIDATE",
-  "role": "CANONICAL_SPECIALIST_CANDIDATE",
+  "position_state": "RESOLVED",
+  "role": "company_specific_specialist_system",
   "company_target": "xAI",
   "canonical_identity": "claim-promotion-fence",
-  "owns_candidate": "scoped_evidence_quorum_claim_promotion",
+  "owns": "scoped_evidence_quorum_claim_promotion",
   "unique_value": [
     "claim maturity advances through ordered evidence-bound stages rather than marketing language",
     "receipts count only when scoped to the exact claim, repository, and source SHA",
     "destination-stage evidence must meet a positive unique-signer quorum",
     "future or revoked evidence fails closed",
-    "prerequisite promotions count only while their grants remain active and stage-sufficient"
+    "prerequisite promotions count only while their grants remain active and stage-sufficient",
+    "Python and Node preserve the same scoped evidence ceiling"
   ],
   "capability_contribution": {
     "family": "evidence_bound_claim_promotion",
@@ -21,9 +22,10 @@
       "per-evidence-kind signer quorum",
       "evidence and grant revocation",
       "dependency-aware promotion",
-      "time-bounded promotion grants"
+      "time-bounded promotion grants",
+      "deterministic promotion decision identity"
     ],
-    "ownership": "Candidate ownership only until exact Python+Node proof closes CANONICAL_POSITION_RESOLVED."
+    "ownership": "This repository owns the estate's xAI-specialist implementation of scoped evidence/quorum claim promotion unless a later evidence-backed canonical decision changes ownership."
   },
   "does_not_own": [
     "actuation lifecycle receipt capture",
@@ -46,17 +48,26 @@
     "absorption_requires_functional_equivalence": true,
     "absorption_requires_proof_equivalence": true
   },
-  "next_evolution_if_proven": "Add receipt-level composition with the actuation lifecycle bus and explicit rollback propagation without turning claim maturity into operational authority.",
+  "next_evolution": "Add receipt-level composition with the actuation lifecycle bus and explicit rollback propagation without turning claim maturity into operational authority.",
   "evidence_refs": [
     "ISSUE_CONTRACT.md",
     "machine/target-contract.json",
+    "machine/canonical-proof-receipt.json",
     "machine/proof_receipt.json",
     "machine/operability_receipt.json",
     "machine/promotion_authority.json"
   ],
+  "proof_basis": {
+    "tested_candidate_sha": "7d86082e299cbed21914b5f62d296d42fbed6384",
+    "pull_request": 5,
+    "workflow_run": 31450384429,
+    "python": "PASS",
+    "node": "PASS"
+  },
   "nonclaims": [
     "no xAI affiliation or adoption",
     "not production Colossus control",
-    "canonical role remains unproven until exact-head Python+Node receipt"
+    "canonical estate role is not external operational authority",
+    "no exercised integration with the actuation receipt bus"
   ]
 }
